@@ -7,18 +7,20 @@ from stationplan import getInfo
 
 
 def getShort(start, end):
-    a, s = computefshortestpath(start, end)
-    return s
+    stationnum, s = computefshortestpath(start, end)
+    return stationnum, s
 
 
 def getInfoStation():
-    stationlist = getInfo()
-    return stationlist
+    stationnumlist, stationlist = getInfo()
+    return stationnumlist, stationlist
 
 
 if __name__ == "__main__":
-    a = input()
-    b = input()
-    s = getShort(a, b)
-    print(s)
-    # print(getInfoStation())
+    # a = input()
+    # b = input()
+    # s = getShort(a, b)
+    # print(s)
+    a, b = getInfoStation()
+    print(type(a))
+    print(type(b))

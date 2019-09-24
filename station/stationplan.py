@@ -80,7 +80,7 @@ def changeline(p1,p2):
     return None
 
 def getInfo():
-    return data
+    return data, STATION_NUM
 # print("data", json.dumps(data, ensure_ascii=False))
 # print("datanum", json.dumps(datanum, ensure_ascii=False))
 # print("STATION_NUM", json.dumps(STATION_NUM, ensure_ascii=False))
@@ -214,7 +214,9 @@ def computefshortestpath(startpos, endpos):
         if p == s1:
             break
     b.reverse()
-    b.append(STATIO[e1])
+    if s1 != e1:
+        b.append(STATIO[e1])
+    stationnumo = len(b)
 
     s = ""
     s += b[0]
@@ -230,11 +232,11 @@ def computefshortestpath(startpos, endpos):
         else:
             s += "-" + b[i]
     s += "-" + b[len(b) - 1]
-    return b, s
+    return stationnumo, s
 
 if __name__ == "__main__":
-    startpos = input()
-    endpos = input()
-    strpath, s = computefshortestpath(startpos,endpos)
-    print(s)
-    # print(getInfo())
+    # startpos = input()
+    # endpos = input()
+    # strpath, s = computefshortestpath(startpos,endpos)
+    # print(s)
+    print(getInfo())
